@@ -1,0 +1,309 @@
+/* General styles */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0;
+    background-color: #0e1217; /* Extracted from the image */
+    color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Header styles */
+header {
+    background: #1c1e26; 
+    padding: 1rem 2rem;
+    position: fixed; 
+    width: 100%; 
+    z-index: 10; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 2rem;
+    color: #4ec8f3; /* Logo color matched to the image */
+    animation: fadeInDown 1s ease-out;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: .2rem .2rem;
+    transition: color 0.3s ease;
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+nav ul li a:hover {
+    color: #4ec8f3; 
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Remove margin from the last item to prevent it from overflowing */
+}
+
+/* Main Section styles */
+#home {
+    text-align: center;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; 
+    position: relative; /* Ensure proper stacking context */
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('DALLE2024.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Place the background behind the content */
+}
+
+#home .text-box {
+    background: rgba(83, 118, 255, 0.8); /* Semi-transparent background */
+    border-radius: 10px;
+    padding: 2rem;
+    z-index: 1; /* Ensure it is above the pseudo-element background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+}
+
+#home h1, #home p {
+    color: #ffffff;
+    margin: 0 0 1rem; /* Space between text elements */
+}
+
+#home h1 {
+    font-size: 3rem;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+#home p {
+    font-size: 1.5rem;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+#home button {
+    background-color: #4ec8f3; 
+    color: #0e1217;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#home button:hover {
+    background-color: #66d9ff; 
+}
+
+/* ChatBot Interface styles */
+#chatbot {
+    background: #262a34;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: scaleIn 0.5s ease-out forwards;
+}
+
+.user-message {
+    color: #4ec8f3; /* Light blue color for user messages */
+    font-weight: bold;
+}
+
+#chatbot h2 {
+    color: #ffffff;
+    margin-bottom: 20px; 
+}
+
+#chatbot .chat-window {
+    background: #1c1e26;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    height: 80vh; /* Fixed height to prevent expansion */
+    overflow: hidden; /* Ensures nothing spills out */
+}
+
+#chatbot .chat-content {
+    flex-grow: 1;
+    overflow-y: scroll; /* Enables scrolling */
+    padding: 1rem;
+    color: #ccc; /* Slightly lighter text color for readability */
+    max-height: calc(80vh - 60px);
+}
+
+#chatbot .input-area {
+    display: flex;
+    padding: 0.5rem;
+    border-top: 1px solid #333;
+}
+
+#chatbot input[type="text"] {
+    margin-right: 0.5rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background: #333;
+    color: white;
+}
+
+#chatbot button {
+    padding: 0.8rem 1.2rem;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Ensure proper formatting of paragraphs in responses */
+#chatbot .chat-content p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+    color: #ffffff; /* White color for better readability */
+}
+
+/* Code Editor styles */
+/* Section for the code editor heading */
+#code-editor h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Spacing between the heading and the code blocks */
+}
+
+/* Styling for the container that holds the code editor and output block */
+.code-container {
+    display: flex;
+    height: -300px;
+    margin: 0 auto; /* Centers the container */
+    max-width: 1200px; /* Matches the width constraint of the chatbot */
+     /* Spacing between the editor and output for aesthetic balance */
+     justify-content: center;
+}
+
+#code-editor textarea, #code-editor #output {
+    flex: 1; /* Each takes half the width of the container */
+    padding: 10px; /* Inner spacing */
+    border: 1px solid #444; /* Visible borders */
+    background-color: #333; /* Background color */
+    color: #66d9ff; /* Text color */
+    max-width: 500px !important;
+    overflow-y: auto; /* Allows scrolling */
+}
+
+.width {
+    min-width: 500px !important;
+}
+
+/* Button container adjustment to match the code container width */
+.button-container {
+    display: flex;
+    justify-content: center; /* Aligns buttons to the start of the container */
+    gap: 10px; /* Space between buttons */
+    margin: 20px auto 0; /* Top margin and horizontally centers */
+    max-width: 1200px; /* To align with the code container */
+}
+
+#code-editor button {
+    padding: 10px 20px; /* Consistent padding */
+    background-color: #4caf50; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No borders */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition on hover */
+}
+
+#code-editor button:hover {
+    background-color: #66d9ff; /* Hover color change */
+}
+
+
+/* Responsive design elements */
+@media (max-width: 768px) {
+    /* Adjust styles for tablet */
+    header {
+        padding: 0.5rem;
+    }
+
+    nav ul li a {
+        padding: .5rem;
+        font-size: 0.9rem;
+    }
+
+    #home {
+        padding: 50px 15px;
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1.3rem;
+    }
+
+    .code-container {
+        flex-direction: column;
+    }
+
+    #code-editor textarea, #code-editor #output {
+        flex: 1 1 100%; /* Full width on smaller screens */
+        margin-right: 0; /* Remove margin */
+        margin-bottom: 20px; /* Space between the stacked elements */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust styles for mobile */
+    nav ul li {
+        margin-right: 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.8rem;
+    }
+
+    #home h1 {
+        font-size: 2rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    #home button {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+    }
+}

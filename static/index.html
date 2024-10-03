@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeCraft - Learn Python with AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">CodeCraft</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#code-editor">Try It</a></li>
+                <li><a href="#chatbot">ChatBot</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to CodeCraft</h1>
+        <p>Learn Python programming with our AI ChatBot tutor.</p>
+        <button onclick="document.querySelector('#chatbot').scrollIntoView({ behavior: 'smooth' })">Start Learning Python Today!</button>
+    </section>
+
+    <section id="about">
+        <h2>About CodeCraft</h2>
+        <p>CodeCraft is an AI-powered platform designed to teach Python programming.</p>
+    </section>
+
+    <section id="code-editor">
+        <h2>Try Python Code</h2>
+        <div class="code-container">
+            <div class="width"><textarea id="code" name="code">print("Hello, Python!")</textarea></div>
+            <div id="output">Output will be displayed here...</div>
+        </div>
+        <div class="button-container">
+            <button onclick="runCode()">Run Code</button>
+            <button onclick="sendCodeToChatbot()">Send Code to Chatbot</button>
+        </div>
+    </section>
+
+    <section id="chatbot">
+        <h2>ChatBot</h2>
+        <div class="chat-window">
+            <div class="chat-content"></div>
+            <input type="text" id="chat-input" placeholder="Type here to talk to chatbot...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </section>
+
+    <footer>
+        <script src="/static/script.js"></script>
+    </footer>
+</body>
+</html>
